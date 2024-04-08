@@ -31,7 +31,7 @@ export default {
     sessionWithName: '会话设置 · {{name}}',
   },
   llm: {
-    Anthropic: {
+    anthropic: {
       endpoint: {
         desc: '除默认地址外，必须包含 http(s)://',
         placeholder: 'https://api.anthropic.com',
@@ -44,7 +44,7 @@ export default {
         title: 'API Key',
       },
     },
-    AzureOpenAI: {
+    azure: {
       azureApiVersion: {
         desc: 'Azure 的 API 版本，遵循 YYYY-MM-DD 格式，查阅[最新版本](https://learn.microsoft.com/zh-cn/azure/ai-services/openai/reference#chat-completions)',
         fetch: '获取列表',
@@ -71,28 +71,34 @@ export default {
         title: 'API Key',
       },
     },
-    Bedrock: {
+    bedrock: {
       accessKeyId: {
-        desc: '填入Aws Access Key Id',
-        placeholder: 'Aws Access Key Id',
-        title: 'Aws Access Key Id',
+        desc: '填入AWS Access Key Id',
+        placeholder: 'AWS Access Key Id',
+        title: 'AWS Access Key Id',
       },
       checker: {
         desc: '测试 AccessKeyId / SecretAccessKey 是否填写正确',
       },
       region: {
-        desc: '填入 Aws Region',
-        placeholder: 'Aws Region',
-        title: 'Aws Region',
+        desc: '填入 AWS Region',
+        placeholder: 'AWS Region',
+        title: 'AWS Region',
       },
       secretAccessKey: {
-        desc: '填入 Aws Secret Access Key',
-        placeholder: 'Aws Secret Access Key',
-        title: 'Aws Secret Access Key',
+        desc: '填入 AWS Secret Access Key',
+        placeholder: 'AWS Secret Access Key',
+        title: 'AWS Secret Access Key',
       },
       title: 'Bedrock',
     },
-    Google: {
+    checker: {
+      button: '检查',
+      desc: '测试 Api Key 与代理地址是否正确填写',
+      pass: '检查通过',
+      title: '连通性检查',
+    },
+    google: {
       title: 'Google',
       token: {
         desc: '填入来自 Google 的 API Key',
@@ -100,7 +106,7 @@ export default {
         title: 'API Key',
       },
     },
-    Groq: {
+    groq: {
       title: 'Groq',
       token: {
         desc: '填入来自 Groq 的 API Key',
@@ -108,7 +114,7 @@ export default {
         title: 'API Key',
       },
     },
-    Mistral: {
+    mistral: {
       title: 'Mistral AI',
       token: {
         desc: '填入来自 Mistral AI 的 API Key',
@@ -116,7 +122,7 @@ export default {
         title: 'API Key',
       },
     },
-    Moonshot: {
+    moonshot: {
       title: '月之暗面',
       token: {
         desc: '填入来自 Moonshot AI 的 API Key',
@@ -124,7 +130,7 @@ export default {
         title: 'API Key',
       },
     },
-    Ollama: {
+    ollama: {
       checker: {
         desc: '测试代理地址是否正确填写',
       },
@@ -140,7 +146,7 @@ export default {
       },
       title: 'Ollama',
     },
-    OpenAI: {
+    openai: {
       azureApiVersion: {
         desc: 'Azure 的 API 版本，遵循 YYYY-MM-DD 格式，查阅[最新版本](https://learn.microsoft.com/zh-cn/azure/ai-services/openai/reference#chat-completions)',
         fetch: '获取列表',
@@ -178,7 +184,7 @@ export default {
         title: 'Azure OpenAI',
       },
     },
-    OpenRouter: {
+    openrouter: {
       checker: {
         desc: '测试代理地址是否正确填写',
       },
@@ -194,7 +200,7 @@ export default {
         title: 'API Key',
       },
     },
-    Perplexity: {
+    perplexity: {
       title: 'Perplexity',
       token: {
         desc: '填入来自 Perplexity AI 的 API Key',
@@ -202,15 +208,32 @@ export default {
         title: 'API Key',
       },
     },
-    ZeroOne: {
+    togetherai: {
+      checker: {
+        desc: '测试代理地址是否正确填写',
+      },
+      customModelName: {
+        desc: '增加自定义模型，多个模型使用逗号（,）隔开',
+        placeholder: 'togethercomputer/Llama-2-7B-32K-Instruct,teknium/OpenHermes-2-Mistral-7B',
+        title: '自定义模型名称',
+      },
+      title: 'TogetherAI',
+      token: {
+        desc: '填入来自 TogetherAI AI 的 API Key',
+        placeholder: 'TogetherAI AI API Key',
+        title: 'API Key',
+      },
+    },
+    waitingForMore: '更多模型正在 <1>计划接入</1> 中，敬请期待 ✨',
+    zeroone: {
       title: '01.AI 零一万物',
       token: {
         desc: '填入来自 01.AI 零一万物的 API Key',
         placeholder: '01.AI 零一万物 API Key',
         title: 'API Key',
-      }
+      },
     },
-    Zhipu: {
+    zhipu: {
       title: '智谱',
       token: {
         desc: '填入来自智谱的 API Key',
@@ -218,14 +241,6 @@ export default {
         title: 'API Key',
       },
     },
-
-    checker: {
-      button: '检查',
-      desc: '测试 Api Key 与代理地址是否正确填写',
-      pass: '检查通过',
-      title: '连通性检查',
-    },
-    waitingForMore: '更多模型正在 <1>计划接入</1> 中，敬请期待 ✨',
   },
   ollama: {
     download: {
