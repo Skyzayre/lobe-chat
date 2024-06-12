@@ -130,6 +130,7 @@
 - **OpenRouter**：其支持包括 **Claude 3**，**Gemma**，**Mistral**，**Llama2**和**Cohere**等模型路由，支持智能路由优化，提升使用效率，开放且灵活。[了解更多](https://openrouter.ai/)
 - **Minimax**: 接入了 Minimax 的 AI 模型，包括 MoE 模型 **abab6**，提供了更多的选择空间。[了解更多](https://www.minimaxi.com/)
 - **DeepSeek**: 接入了 DeepSeek 的 AI 模型，包括最新的 **DeepSeek-V2**，提供兼顾性能与价格的模型。[了解更多](https://www.deepseek.com/)
+- **Qwen**: 接入了 Qwen 的 AI 模型，包括最新的 **qwen-turbo**，**qwen-plus** 和 **qwen-max** 等模型。[了解更多](https://help.aliyun.com/zh/dashscope/developer-reference/model-introduction)
 
 同时，我们也在计划支持更多的模型服务商，如 Replicate 和 Perplexity 等，以进一步丰富我们的服务商库。如果你希望让 LobeChat 支持你喜爱的服务商，欢迎加入我们的[社区讨论](https://github.com/lobehub/lobe-chat/discussions/1284)。
 
@@ -217,12 +218,12 @@ LobeChat 的插件生态系统是其核心功能的重要扩展，它极大地�
 
 | 最近新增                                                                                                                 | 插件描述                                                                            |
 | ------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- |
+| [社交搜索](https://chat-preview.lobehub.com/settings/agent)<br/><sup>By **say-apps** on **2024-06-02**</sup>             | 社交搜索提供访问推文、用户、关注者、图片、媒体等功能。<br/>`社交` `推特` `x` `搜索` |
 | [空间](https://chat-preview.lobehub.com/settings/agent)<br/><sup>By **automateyournetwork** on **2024-05-12**</sup>      | 包括 NASA 的空间数据。<br/>`空间` `nasa`                                            |
 | [Search1API](https://chat-preview.lobehub.com/settings/agent)<br/><sup>By **fatwang2** on **2024-05-06**</sup>           | 搜索聚合服务，专为 LLMs 设计<br/>`web` `search`                                     |
-| [社交搜索](https://chat-preview.lobehub.com/settings/agent)<br/><sup>By **say-apps** on **2024-05-02**</sup>             | 社交搜索提供访问推文、用户、关注者、图片、媒体等功能。<br/>`社交` `推特` `x` `搜索` |
 | [通过 Serper 搜索 Google](https://chat-preview.lobehub.com/settings/agent)<br/><sup>By **Barry** on **2024-04-30**</sup> | 通过 Serper.dev 免费 API 进行 Google 搜索引擎（每月 2500 次🆓）<br/>`网络` `搜索`   |
 
-> 📊 Total plugins: [<kbd>**58**</kbd>](https://github.com/lobehub/lobe-chat-plugins)
+> 📊 Total plugins: [<kbd>**55**</kbd>](https://github.com/lobehub/lobe-chat-plugins)
 
  <!-- PLUGIN LIST -->
 
@@ -250,14 +251,14 @@ LobeChat 的插件生态系统是其核心功能的重要扩展，它极大地�
 
 <!-- AGENT LIST -->
 
-| 最近新增                                                                                                                                                                             | 助手说明                                                                                                                                                                           |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [SF Symbols 查找器](https://chat-preview.lobehub.com/market?agent=sf-symbols-finder)<br/><sup>By **[inquiry-paring0a](https://github.com/inquiry-paring0a)** on **2024-05-08**</sup> | 精通苹果 SF Symbols，可根据描述选择符合的 Symbols<br/>`sf-symbols` `专家` `图标` `符号` `插件`                                                                                     |
-| [GhostWriter Pro](https://chat-preview.lobehub.com/market?agent=ghostwriter-pro-ai)<br/><sup>By **[EarlofSandwhich](https://github.com/EarlofSandwhich)** on **2024-05-07**</sup>    | 一款复杂的 AI 驱动的写手代理，旨在跨多种流派和格式创作高质量内容。GhostWriter Pro 配备先进的语言模型，擅长创作个性化、引人入胜且有研究支持的写作，符合专业标准。<br/>`作者` `写作` |
-| [视频转博客文章助手](https://chat-preview.lobehub.com/market?agent=video-2-blog-assistant)<br/><sup>By **[yayoinoyume](https://github.com/yayoinoyume)** on **2024-05-06**</sup>     | 帮你快速整理缭乱的字幕，变成精美的博客文章<br/>`字幕整理` `博文格式` `视频变博客`                                                                                                  |
-| [美术评价导师](https://chat-preview.lobehub.com/market?agent=wanwusheng-art)<br/><sup>By **[dingyufei615](https://github.com/dingyufei615)** on **2024-05-06**</sup>                 | 擅长少儿美术教学，细致评价作品，关注细节，适应不同年龄段学生。<br/>`美术教育` `评价` `创意` `教学` `绘画`                                                                          |
+| 最近新增                                                                                                                                                                     | 助手说明                                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| [Mysql 好先生](https://chat-preview.lobehub.com/market?agent=mysql-haoteacher)<br/><sup>By **[yayoinoyume](https://github.com/yayoinoyume)** on **2024-06-09**</sup>         | mysql 好先生是帮助所有人学习 mysql 的好老师<br/>`mysql` `编程` `学习`                                                         |
+| [通俗科普创作助手](https://chat-preview.lobehub.com/market?agent=popular-science-writer)<br/><sup>By **[ShinChven](https://github.com/ShinChven)** on **2024-06-08**</sup>   | 通俗科普创作助手，用生活化语言讲科学概念，讲故事、使用例子和比喻，激发兴趣，强调重要性。<br/>`科普写作` `科学普及` `创意表达` |
+| [审稿回复专家](https://chat-preview.lobehub.com/market?agent=academic-editor-en)<br/><sup>By **[Starlitnightly](https://github.com/Starlitnightly)** on **2024-06-03**</sup> | 擅长自然学术编辑，协助作者回复审稿人意见，科学、礼貌、逐点回应。<br/>`学术编辑` `审稿意见回复` `科学写作`                     |
+| [小说翻译 英译中](https://chat-preview.lobehub.com/market?agent=noveltranslation)<br/><sup>By **[xbtachlb](https://github.com/xbtachlb)** on **2024-06-03**</sup>            | 小说二次翻译<br/>`翻译`                                                                                                       |
 
-> 📊 Total agents: [<kbd>**249**</kbd> ](https://github.com/lobehub/lobe-chat-agents)
+> 📊 Total agents: [<kbd>**287**</kbd> ](https://github.com/lobehub/lobe-chat-agents)
 
  <!-- AGENT LIST -->
 
@@ -735,7 +736,7 @@ This project is [MIT](./LICENSE) licensed.
 [image-feat-theme]: https://gw.alipayobjects.com/zos/kitchen/pvus1lo%26Z7/darkmode.webp
 [image-feat-tts]: https://github-production-user-asset-6210df.s3.amazonaws.com/17870709/284072124-c9853d8d-f1b5-44a8-a305-45ebc0f6d19a.png
 [image-feat-vision]: https://github-production-user-asset-6210df.s3.amazonaws.com/17870709/284072129-382bdf30-e3d6-4411-b5a0-249710b8ba08.png
-[image-overview]: https://github.com/lobehub/lobe-chat/assets/28616219/8b04c3c9-3d71-4fb4-bd9b-a4f415c5876d
+[image-overview]: https://github.com/lobehub/lobe-chat/assets/17870709/56b95d48-f573-41cd-8b38-387bf88bc4bf
 [image-star]: https://github.com/lobehub/lobe-chat/assets/17870709/cb06b748-513f-47c2-8740-d876858d7855
 [issues-link]: https://img.shields.io/github/issues/lobehub/lobe-chat.svg?style=flat
 [lobe-chat-plugins]: https://github.com/lobehub/lobe-chat-plugins

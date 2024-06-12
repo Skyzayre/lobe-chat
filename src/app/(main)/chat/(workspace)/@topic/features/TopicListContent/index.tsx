@@ -3,7 +3,7 @@
 import { EmptyCard } from '@lobehub/ui';
 import { useThemeMode } from 'antd-style';
 import isEqual from 'fast-deep-equal';
-import React, { memo, useCallback, useRef } from 'react';
+import React, { memo, useCallback, useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
 import { Virtuoso, VirtuosoHandle } from 'react-virtuoso';
@@ -11,37 +11,41 @@ import { Virtuoso, VirtuosoHandle } from 'react-virtuoso';
 import { imageUrl } from '@/const/url';
 import { useChatStore } from '@/store/chat';
 import { topicSelectors } from '@/store/chat/selectors';
+import { useSessionStore } from '@/store/session';
 import { useUserStore } from '@/store/user';
 import { ChatTopic } from '@/types/topic';
 
-import { Placeholder, SkeletonList } from './SkeletonList';
+import { Placeholder, SkeletonList } from '../SkeletonList';
 import TopicItem from './TopicItem';
 
 const TopicListContent = memo(() => {
   const { t } = useTranslation('chat');
   const virtuosoRef = useRef<VirtuosoHandle>(null);
   const { isDarkMode } = useThemeMode();
-  const [topicsInit, activeTopicId, topicLength] = useChatStore((s) => [
+  const [topicsInit, activeTopicId, topicLength, useFetchTopics] = useChatStore((s) => [
     s.topicsInit,
     s.activeTopicId,
     topicSelectors.currentTopicLength(s),
+    s.useFetchTopics,
   ]);
   const [visible, updateGuideState] = useUserStore((s) => [
     s.preference.guide?.topic,
     s.updateGuideState,
   ]);
 
-  const topics = useChatStore(
-    (s) => [
-      {
-        favorite: false,
-        id: 'default',
-        title: t('topic.defaultTitle'),
-      } as ChatTopic,
-      ...topicSelectors.displayTopics(s),
+  const activeTopicList = useChatStore(topicSelectors.displayTopics, isEqual);
+
+  const topics = useMemo(
+    () => [
+      { favorite: false, id: 'default', title: t('topic.defaultTitle') } as ChatTopic,
+      ...(activeTopicList || []),
     ],
-    isEqual,
+    [activeTopicList],
   );
+
+  const [sessionId] = useSessionStore((s) => [s.activeId]);
+
+  useFetchTopics(sessionId);
 
   const itemContent = useCallback(
     (index: number, { id, favorite, title }: ChatTopic) =>
@@ -55,9 +59,10 @@ const TopicListContent = memo(() => {
 
   const activeIndex = topics.findIndex((topic) => topic.id === activeTopicId);
 
-  return !topicsInit ? (
-    <SkeletonList />
-  ) : (
+  // first time loading or has no data
+  if (!topicsInit || !activeTopicList) return <SkeletonList />;
+
+  return (
     <>
       {topicLength === 0 && visible && (
         <Flexbox paddingInline={8}>
@@ -96,5 +101,7 @@ const TopicListContent = memo(() => {
     </>
   );
 });
+
+TopicListContent.displayName = 'TopicListContent';
 
 export default TopicListContent;
